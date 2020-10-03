@@ -21,11 +21,16 @@ app.get("",(req,res)=>{
 })
 
 app.get("/about",(req,res)=>{
-    res.render("about");
+    res.render("about",{
+        name:"Shubham",
+        desc:"I am a Freelancer at Up Work and Love to make User Interactive Applications.This application is just a teaser of my Talent :)" 
+       });
 })
 
 app.get("/help",(req,res)=>{
-    res.render("help");
+    res.render("help",{
+        desc:"this App will help you to find the temprature and current status of the location which you will provide. Components used to make this app are Node.js,Express,Vanilla java script,Bootstrap,Html ",
+    });
 })
 
 app.get("/dict",(req,res)=>{
@@ -44,7 +49,11 @@ app.get("/dict",(req,res)=>{
 
     })
 })
-
+app.get("*",(req,res)=>{
+    res.render("404",{
+        name:"404 Page not found",
+    })
+})
 
 app.listen(port,()=>{
     console.log("server up on port"+port);
