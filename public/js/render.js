@@ -1,0 +1,31 @@
+const dictForm=document.querySelector("form");
+const input=document.querySelector("input");
+const word=document.querySelector("#word");
+const meaning=document.getElementById("mean");
+const example=document.querySelector("#example");
+
+dictForm.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    var x=input.value;
+    word.innerText="";
+    meaning.innerText="";
+    example.innerText="";
+    fetch("/dict?word="+x).then((res)=>{
+        res.json().then((data)=>{
+            if(data.error){
+                if(data.error.message){
+                    word.innerText=data.error.message;
+                }
+                else{
+                    word.innerText=data.error;
+                }
+            }
+            else{
+                console.log(data.body[0].meanings[0].definitions[0].definition)
+                word.innerText=data.body[0].word;
+                meaning.innerText="Meaning : "+ data.body[0].meanings[0].definitions[0].definition;
+                if(data.body[0].meanings[0].definitions[0].example){
+                example.innerText="Example : " + data.body[0].meanings[0].definitions[0].example;}
+            }
+    })
+})})

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{>header}}
+<link rel="stylesheet" href="/css/index.css">
+<form>
+       <div class="form-group">
+         <label for="exampleInputEmail1">Enter Word</label>
+         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Word"> 
+         {{!-- <label for="exampleInputEmail1">Enter Language</label>
+         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Language">  --}}
+       </div>
+       <button type="submit" class="btn btn-primary" id="submit">Find Meaning</button>
+     </form><hr>
+     <p class="h1" id="word"></p><hr>
+     <p class="h2" id="mean"></p><hr>
+     <p class="h2" id="example"></p><hr>
+</div></div>
+</body>
+
+<script src="js/render.js"></script>
+</html>
